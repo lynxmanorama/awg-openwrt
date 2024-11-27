@@ -49,7 +49,7 @@ jobs:
     needs: generate-config
     strategy:
       matrix:
-        build_env: ${{ fromJson(needs.generate-config.outputs.job-config) }}
+        build_env:
           - tag: 22.03.5
             pkgarch: mipsel_24kc
             target: ramips
