@@ -9,12 +9,6 @@ on:
       tag_name:
         required: true
         type: string
-env:
-  tag: 22.03.5
-  pkgarch: mipsel_24kc
-  target: ramips
-  subtarget: mt7621
-  vermagic: 2d6f3ce75b5e7700b705cb00cd526063
 
 jobs:
   generate-config:
@@ -56,6 +50,11 @@ jobs:
     strategy:
       matrix:
         build_env: ${{ fromJson(needs.generate-config.outputs.job-config) }}
+            tag: 22.03.5
+            pkgarch: mipsel_24kc
+            target: ramips
+            subtarget: mt7621
+            vermagic: 2d6f3ce75b5e7700b705cb00cd526063
       fail-fast: false
 
     steps:
